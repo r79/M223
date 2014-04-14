@@ -1,5 +1,7 @@
 package bank;
 
+import interceptor.TimeInterceptor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +20,7 @@ import zins.ZinsBean;
 import entity.Konto;
 
 @Stateless
-@Interceptors(ch.zli.m223.interceptor.HelloInterceptor.class)
+@Interceptors({ ch.zli.m223.interceptor.HelloInterceptor.class, TimeInterceptor.class })
 public class BankBean implements Bank {
 
 	@PersistenceContext(unitName = "persistenceContext_Bank")
